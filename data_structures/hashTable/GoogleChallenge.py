@@ -14,7 +14,7 @@ Should return undefined
 
 def brute_force_approach(array):  # O(n^2)
     min_rec_index = len(array) + 1
-    for i in range(0, len(array)):
+    for i in range(len(array)):
         for j in range(i+1, len(array)):
             if array[i] == array[j]:
                 if j < min_rec_index:
@@ -30,6 +30,21 @@ print(brute_force_approach([2, 1, 1, 2, 3, 5, 1, 2, 4]))
 print(brute_force_approach([2, 3, 4, 5]))
 print(brute_force_approach([]))
 print(brute_force_approach([2, 3, 4, 5, 6, 7, 8, 1, 8, 1]))
+
+
+def naive_approach(array):  # O(n^2)
+    for i in range(1, len(array)):
+        for j in range(i - 1, -1, -1):
+            if array[i] == array[j]:
+                return array[i]
+    return None
+
+
+print(naive_approach([2, 5, 1, 2, 3, 5, 1, 2, 4]))
+print(naive_approach([2, 1, 1, 2, 3, 5, 1, 2, 4]))
+print(naive_approach([2, 3, 4, 5]))
+print(naive_approach([]))
+print(naive_approach([2, 3, 4, 5, 6, 7, 8, 1, 8, 1]))
 
 
 def linear_approach(array):  # O(n)
