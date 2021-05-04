@@ -1,16 +1,14 @@
 def selection(li):
-    for i in range(li):
-        smallest = li[i]
+    for i in range(len(li)):
+        temp = li[i]
         smallest_index = i
-        for j in range(li):
-            if li[j] < smallest:
-                smallest = li[j]
+        for j in range(i+1, len(li)):
+            if li[j] < li[smallest_index]:
                 smallest_index = j
-    temp = li[i]
-    li[i] = smallest
-    li[smallest_index] = temp
+        li[i] = li[smallest_index]
+        li[smallest_index] = temp
+    return li
 
 
 numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
-selection(numbers)
-print(numbers)
+print(selection(numbers))
